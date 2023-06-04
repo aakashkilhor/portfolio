@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aakash Yadav</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header> -->
+
+  <section id="hero">
+    <div class="profile">
+    <div class="hero-content container">
+      <h1>Hi, I'm Aakash Yadav</h1>
+      <p> A web developer with a passion for creating amazing websites and web applications with hands-on experience with JavaScript, React.js, Node.js, Express.js, and MongoDB.  Actively seeking a position where I can apply my skills and continue learning while making a positive impact.</p>
+         <a href="#contact" class="btn">Contact Me</a>
+         <a href="Aakash Yadav.pdf" download class="download-button btn">
+            Resume PDF File
+          </a>
+    </div>
+</div>
+  </section>
+
+  <!-- <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum lacus at nisi congue
+        lacinia. Suspendisse a dui eget felis elementum ultricies. Vestibulum mattis, odio ut facilisis
+        commodo, metus magna laoreet turpis, ut eleifend ipsum purus ut ipsum. Donec mollis, mauris vitae
+        lobortis tempus, ligula mi iaculis velit, vel tristique risus purus non nisl.</p>
+    </div>
+  </section> -->
+  <section id="projects">
+    <div class="container-card">
+      <h2>Projects</h2>
+      <div class="project-slider">
+        <div class="slider-arrow slider-arrow-left" id="ml">&#10094;</div>
+        <div class="slider-arrow slider-arrow-right">&#10095;</div>
+        <div class="project-card">
+          <img src="tictactoe.png" alt="Project 1">
+          <div class="card-content">
+            <h3>Tic-Tac-Toe</h3>
+          <p>Tic Tac Toe game built using React JS. The game allows two players to take turns marking spaces on a 3x3 grid.</p>
+          <a href="#" class="btn">View Project</a>
+          </div>
+          
+        </div>
+        <div class="project-card">
+          <img src="Home.png" alt="Project 2">
+          <div class="card-content">
+            <h3>Todo MERN</h3>
+          <p>A task management application built using MERN stack and Appwrite for authentication.</p>
+          <a href="#" class="btn">View Project</a>
+          </div>
+          
+        </div>
+        <div class="project-card">
+          <img src="gituser.png" alt="Project 3">
+          <div class="card-content">
+            <h3>Github User Search</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum lacus at nisi congue
+              lacinia.</p>
+            <a href="#" class="btn">View Project</a></div>
+        </div>
+        <div class="project-card">
+          <img src="uipage.png" alt="Project 4">
+          <div class="card-content">
+            <h3>Website Landing Page</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum lacus at nisi congue
+            lacinia.</p>
+          <a href="#" class="btn">View Project</a>
+          </div>
+          
+        </div>
+        <div class="project-card">
+          <img src="auth.png" alt="Project 5">
+          <div class="card-content">
+            <h3>Authentication System</h3>
+          <p>Authentication system built using JWT Token and cookies to manage user session</p>
+          <a href="#" class="btn">View Project</a>
+          </div>
+          
+        </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Connect With Me</h2>
+      <div class="contact-links">
+        
+        <a href="https://github.com/aakashkilhor" target="_blank" rel="noopener noreferrer" class="contact-details"><img src="github.svg" height="40px" alt=""></a>
+        
+        <a href="https://linkedin.com/in/aakash-kilhor" target="_blank" rel="noopener noreferrer" class="contact-details"><img src="linkedin-in.svg" height="40px" alt=""></a>
+        
+        <a href="mailto:aakashkilhor@gmail.com" class="contact-details">
+            <img src="envelope-solid.svg" height="40px" alt="">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Web Developer Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+  var projectSlider = document.querySelector('.project-slider');
+  var projectCards = projectSlider.getElementsByClassName('project-card');
+  var visibleCards = 3;
+  var slideIndex = 0;
+  var slideInterval = 2000; // 2 seconds
+
+  var manualScrolling = false;
+  var scrollTimeout;
+
+  function showSlides() {
+    for (var i = 0; i < projectCards.length; i++) {
+      projectCards[i].style.display = 'none';
+    }
+
+    for (var j = slideIndex; j < slideIndex + visibleCards; j++) {
+      var index = j % projectCards.length;
+      projectCards[index].style.display = 'block';
+    }
+
+    slideIndex++;
+    if (slideIndex >= projectCards.length) {
+      slideIndex = 0;
+    }
+
+    if (!manualScrolling) {
+      scrollTimeout = setTimeout(showSlides, slideInterval);
+    }
+  }
+
+  function scrollLeft() {
+    manualScrolling = true;
+    slideIndex -= visibleCards;
+    if (slideIndex < 0) {
+      slideIndex = projectCards.length - visibleCards;
+    }
+    showSlides();
+  }
+
+  function scrollRight() {
+    manualScrolling = true;
+    slideIndex += visibleCards;
+    if (slideIndex >= projectCards.length) {
+      slideIndex = 0;
+    }
+    showSlides();
+  }
+
+  function startAutoScroll() {
+    manualScrolling = false;
+    clearTimeout(scrollTimeout);
+    showSlides();
+  }
+
+  var sliderLeft = document.querySelector('.slider-arrow-left');
+  var sliderRight = document.querySelector('.slider-arrow-right');
+  sliderLeft.addEventListener('click', scrollLeft);
+  sliderRight.addEventListener('click', scrollRight);
+  projectSlider.addEventListener('mouseover', function() {
+    manualScrolling = true;
+    clearTimeout(scrollTimeout);
+  });
+  projectSlider.addEventListener('mouseleave', function() {
+    startAutoScroll();
+  });
+
+  showSlides();
+});
+
+  </script>
+
+</body>
+
+</html>
+
