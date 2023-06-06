@@ -48,7 +48,7 @@ body, h1, h2, h3, p, ul, li {
   
   /* Hero section styles */
   #hero {
-    background-image: url('bg.jpg');
+    background-image: url('/assets/bg.jpg');
     background-size: cover;
     background-position: center;
     height: 600px;
