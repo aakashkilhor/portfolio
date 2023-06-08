@@ -25,10 +25,8 @@
   <section id="projects">
     <div class="container-card">
       <h2>Projects</h2>
-      <div class="slider-arrow slider-arrow-left" id="ml">&#10094;</div>
       
-      <div class="project-slider">
-        <!-- <div class="slider-arrow slider-arrow-left" id="ml">&#10094;</div> -->
+      <div>
         <div class="project-card">
           <img src="/assets/tictactoe.png" alt="Project 1">
           <div class="card-content">
@@ -54,7 +52,6 @@
             <p>Utilized the GitHub API for fetching user profiles and repository data for valuable insights.</p>
             <a href="https://inspiring-churros-ae6581.netlify.app/" target="_blank" class="btn">View Project</a></div>
         </div>
-        
         <div class="project-card">
           <img src="/assets/devpage.png" alt="Project 7">
           <div class="card-content">
@@ -89,7 +86,6 @@
           </div>
         </div>
     </div>
-    <div class="slider-arrow slider-arrow-right">&#10095;</div>
     </div>
   </section>
 
@@ -114,77 +110,6 @@
       <p>&copy; Web Developer Portfolio - Aakash Yadav</p>
     </div>
   </footer>
-  <script>
-    window.addEventListener('DOMContentLoaded', function() {
-  var projectSlider = document.querySelector('.project-slider');
-  var projectCards = projectSlider.getElementsByClassName('project-card');
-  var visibleCards = 3;
-  var slideIndex = 0;
-  var slideInterval = 2000; // 2 seconds
-
-  var manualScrolling = false;
-  var scrollTimeout;
-
-  function showSlides() {
-    for (var i = 0; i < projectCards.length; i++) {
-      projectCards[i].style.display = 'none';
-    }
-
-    for (var j = slideIndex; j < slideIndex + visibleCards; j++) {
-      var index = j % projectCards.length;
-      projectCards[index].style.display = 'block';
-    }
-
-    slideIndex++;
-    if (slideIndex >= projectCards.length) {
-      slideIndex = 0;
-    }
-
-    if (!manualScrolling) {
-      scrollTimeout = setTimeout(showSlides, slideInterval);
-    }
-  }
-
-  function scrollLeft() {
-    manualScrolling = true;
-    slideIndex -= visibleCards;
-    if (slideIndex < 0) {
-      slideIndex = projectCards.length - visibleCards;
-    }
-    showSlides();
-  }
-
-  function scrollRight() {
-    manualScrolling = true;
-    slideIndex += visibleCards;
-    if (slideIndex >= projectCards.length) {
-      slideIndex = 0;
-    }
-    showSlides();
-  }
-
-  function startAutoScroll() {
-    manualScrolling = false;
-    clearTimeout(scrollTimeout);
-    showSlides();
-  }
-
-  var sliderLeft = document.querySelector('.slider-arrow-left');
-  var sliderRight = document.querySelector('.slider-arrow-right');
-  sliderLeft.addEventListener('click', scrollLeft);
-  sliderRight.addEventListener('click', scrollRight);
-  projectSlider.addEventListener('mouseover', function() {
-    manualScrolling = true;
-    clearTimeout(scrollTimeout);
-  });
-  projectSlider.addEventListener('mouseleave', function() {
-    startAutoScroll();
-  });
-
-  showSlides();
-});
-
-  </script>
 
 </body>
 
