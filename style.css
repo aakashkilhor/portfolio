@@ -69,7 +69,8 @@ body, h1, h2, h3, p, ul, li {
   }
   .card-content {
     padding: 0 20px 20px 20px;
-    background-color: #fff;
+    background-color: #f5f5f5;
+    border-radius: 5px;
   }
   .btn {
     display: inline-block;
@@ -87,36 +88,46 @@ body, h1, h2, h3, p, ul, li {
     text-align: center;
   }
   /* Projects section styles */
+  .proheading{
+    font-size: 45px;
+  }  
+
   #projects {
     padding: 40px 0;
+    /* font-size: 40px; */
     text-align: center;
+    background: #d3d3d3;
   }
   .project-card {
+    padding: 5px;
     display: inline-block;
     width: 320px;
-    height: 380px;
-    background-color: #fcfcfc;
+    height: 360px;
+    background-color: #f5f5f5;
     margin: 20px;
     text-align: left;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
   }
   .project-card img {
     width: 320px;
     height: 180px;
     object-fit: cover;
-    border-radius: 10px 10px 10px 0px;
+    border-radius: 10px 10px 10px 10px;
   }
   .project-card h3 {
-    margin-top: 10px;
+    /* margin-top: 10px; */
+    padding-left: 5px;
+    /* background: #ffb6c1; */
+    border-radius: 5px;
   }
-  .project-slider {
+  /* .project-slider {
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-  }
+  } */
 
   /* Contact section styles */
   #contact {
